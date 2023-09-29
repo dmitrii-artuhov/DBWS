@@ -20,6 +20,15 @@ Implement:
         RecurrentTask   -> Task
 */
 
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    nickname VARCHAR(50) NOT NULL,
+    team_ids INT[] DEFAULT ARRAY[]::INT[],
+    avatar_id INT DEFAULT 0, 
+    FOREIGN KEY (avatar_id) REFERENCES avatars(id)
+);
 
 CREATE TABLE avatars(
     id INT AUTO_INCREMENT PRIMARY KEY,
