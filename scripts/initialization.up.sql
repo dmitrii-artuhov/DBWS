@@ -20,55 +20,61 @@ Implement:
         RecurrentTask   -> Task
 */
 
+CREATE TABLE avatars(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    avatar_image_id INT NOT NULL -- inner id of predefined pictures
+);
+
+
+CREATE TABLE themes(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    theme_image_id INT NOT NULL -- inner id of predefined pictures
+);
+
+
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    nickname VARCHAR(50) NOT NULL,
-    team_ids INT[] DEFAULT ARRAY[]::INT[],
+    nickname VARCHAR(255) NOT NULL,
+    team_ids TEXT NOT NULL, -- contains ids of teams with delimeter ';'
     avatar_id INT DEFAULT 0, 
     FOREIGN KEY (avatar_id) REFERENCES avatars(id)
 );
 
-CREATE TABLE avatars(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    avatar_image_id INT NOT NULL -- inner id of picture which is placed on client
-);
-
-CREATE TABLE themes(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    theme_image_id INT NOT NULL -- inner id of picture which is placed on client
-);
 
 CREATE TABLE teams (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    participants INT[] NOT NULL,
+    participant_ids TEXT NOT NULL, -- contains ids of team participants with delimeter ';'
     theme_id INT NOT NULL,
     name VARCHAR(255) NOT NULL,
     owner_id INT NOT NULL,
     shareable BOOLEAN DEFAULT FALSE,
-    list_ids INT[], 
-    FOREIGN KEY (owner_id) REFERENCES users(id)
+    list_ids TEXT NOT NULL, -- contains ids of lists inside a team with delimeter ';' 
+    FOREIGN KEY (owner_id) REFERENCES users(id),
     FOREIGN KEY (theme_id) REFERENCES themes(id)
 );
+
 
 CREATE TABLE lists(
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    tasks INT[]
+    tasks TEXT NOT NULL -- contains ids of tasks inside a list with delimeter ';'
 );
+
 
 CREATE TABLE tasks(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(25) NOT NULL,
+    title VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL,
     owner_id INT NOT NULL,
     create_time DATETIME NOT NULL,
     update_time DATETIME NOT NULL,
-    type VARCHAR(50),
+    type ENUM('REGULAR', 'DEADLINE', 'HIGHLIGHTED', 'RECURRENT'),
     is_completed BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (owner_id) REFERENCES users(id)
 );
+
 
 -- IS-A hierarchies
 
@@ -78,11 +84,13 @@ CREATE TABLE deadline_tasks(
     FOREIGN KEY (id) REFERENCES tasks(id)
 );
 
+
 CREATE TABLE highlighted_tasks(
     id INT AUTO_INCREMENT PRIMARY KEY,
     color VARCHAR(7) DEFAULT '#FFFF00', -- Default color is yellow
     FOREIGN KEY (id) REFERENCES tasks(id)
 );
+
 
 CREATE TABLE recurrent_tasks (
     id INT AUTO_INCREMENT PRIMARY KEY,
