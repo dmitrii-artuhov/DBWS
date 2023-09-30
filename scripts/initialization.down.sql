@@ -1,0 +1,9 @@
+DROP TABLE users;
+DROP TABLE avatars;
+DROP TABLE themes;
+DROP TABLE teams;
+DROP TABLE lists;
+DROP TABLE tasks;
+DROP TABLE deadline_tasks;
+DROP TABLE highlighted_tasks;
+DROP TABLE recurrent_tasks;
