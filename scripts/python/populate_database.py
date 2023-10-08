@@ -33,12 +33,17 @@ def execute_sql_script(script_file):
 parser = argparse.ArgumentParser(description='Script to manage tables in a MySQL database and populate it with data')
 parser.add_argument('--create-tables', type=str, help='Path to the tables initialization script')
 parser.add_argument('--drop-tables', type=str, help='Path to the table drop script')
+parser.add_argument('--populate-tables', action="store_true", help='Populates tables with fake data')
 args = parser.parse_args()
 
 
 if args.create_tables:
     print(f"Creating tables in database: '{db_config['database']}' using '{args.create_tables}'")
     execute_sql_script(args.create_tables)
+
+if args.populate_tables:
+    print(f"Populating tables in database: '{db_config['database']}' with fake data")
+
 
 if args.drop_tables:
     print(f"Dropping tables in database: '{db_config['database']}' using '{args.drop_tables}'")
