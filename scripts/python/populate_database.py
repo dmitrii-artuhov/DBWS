@@ -15,14 +15,15 @@ def execute_sql_script(script_file):
         # Create a cursor object to execute SQL commands
         with connection.cursor() as cursor:
             # Read the SQL commands from the specified script file
-            sql_commands = f"USE {db_config['database']};\n"
             with open(script_file, 'r') as sql_file:
-                sql_commands += sql_file.read()
+                sql_commands = sql_file.read()
 
-            # Execute the SQL commands from the script
-            cursor.execute(sql_commands)
-            cursor.fetchall()
-            
+            # Split the script into individual SQL statements (assuming statements are separated by ';')
+            sql_statements = sql_commands.split(';')
+            for sql_statement in sql_statements:
+                if sql_statement.strip():
+                    cursor.execute(sql_statement)
+
             # Commit the changes to the database
             connection.commit()
             print(f"Script '{script_file}' executed successfully.")
@@ -39,6 +40,6 @@ if args.create_tables:
     print(f"Creating tables in database: '{db_config['database']}' using '{args.create_tables}'")
     execute_sql_script(args.create_tables)
 
-# if args.drop_tables:
-#     print(f"Dropping tables in database: '{db_config['database']}' using '{args.drop_tables}'")
-#     execute_sql_script(args.drop_tables)
+if args.drop_tables:
+    print(f"Dropping tables in database: '{db_config['database']}' using '{args.drop_tables}'")
+    execute_sql_script(args.drop_tables)
