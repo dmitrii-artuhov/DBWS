@@ -1,9 +1,9 @@
-DROP TABLE teams;
-DROP TABLE themes;
-DROP TABLE lists;
-DROP TABLE deadline_tasks;
-DROP TABLE recurrent_tasks;
-DROP TABLE highlighted_tasks;
-DROP TABLE tasks;
-DROP TABLE users;
-DROP TABLE avatars;
+DROP TABLE IF EXISTS teams;
+DROP TABLE IF EXISTS themes;
+DROP TABLE IF EXISTS lists;
+DROP TABLE IF EXISTS deadline_tasks;
+DROP TABLE IF EXISTS recurrent_tasks;
+DROP TABLE IF EXISTS highlighted_tasks;
+DROP TABLE IF EXISTS tasks;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS avatars;
