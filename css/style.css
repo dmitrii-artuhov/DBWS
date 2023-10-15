@@ -46,7 +46,6 @@ section {
 	padding: 0 15px;
 	margin-left: auto;
 	margin-right: auto;
-  border: 1px solid red;
 }
 
 section.home {
@@ -106,7 +105,6 @@ section.home {
 
 /* NAVIGATION */
 .navigation {
-  border: 1px solid red;
   position: relative;
   padding: 10px;
   box-sizing: border-box;
@@ -316,31 +314,16 @@ section.account {
   margin: 0 10px;
 }
 
-.account-info {
-  width: 350px;
-  background: #f9f9f9;
-  padding: 30px 20px 10px;
+section.footer {
+  color: rgba(255, 255, 255, 0.7);
+  background-color: #171717;
+  padding: 50px;
 }
 
-.account-info .info-box {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 40px;
+section.footer {
+  font-weight: 300;
 }
 
-.account-info .info-box .account-icon {
-  width: 20px;
-  margin-right: 40px;
-}
-
-.account-info .info-box .details h4 {
-  color: var(--secondary-color);
-}
-
-.account-info .info-box .details p,
-.account-info .info-box .details a {
-  color: #111;
-}
 
 @media (max-width: 1068px) {
   .services-list {
@@ -373,12 +356,6 @@ section.account {
 
   .account-form h2 {
     margin: 0;
-  }
-
-  .account-info {
-    width: 100%;
-    margin-top: 20px;
-    padding: 30px 30px 20px;
   }
 }
 

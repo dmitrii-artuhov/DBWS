@@ -1,0 +1,33 @@
+
+.imprint-info {
+    background: #f9f9f9;
+    padding: 30px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imprint-info .info-box {
+    width: 300px;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.imprint-info .info-box .details h4 {
+    color: var(--secondary-color);
+}
+
+.imprint-info .info-box .details p,
+.imprint-info .info-box .details a {
+    color: #111;
+}
+
+
+@media (max-width: 1068px) {
+  .imprint-info {
+    width: 100%;
+    margin-top: 20px;
+    padding: 30px 30px 20px;
+  }  
+}
