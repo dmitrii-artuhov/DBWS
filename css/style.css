@@ -7,6 +7,7 @@
   --logo-text-size: 28px;
   --title-text-size: 24px;
   --regular-text-size: 16px;
+  --small-text-size: 10px;
 }
 
 /* BASE STYLES */
@@ -48,11 +49,22 @@ section {
 	margin-right: auto;
 }
 
+section .title {
+  align-self: flex-start;
+}
+
 section.home {
+  margin-top: 40px;
+}
+
+
+.home-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin-top: 0;
 }
 
 /* BUTTON */
@@ -151,8 +163,8 @@ section.home {
   max-height: 450px;
 }
 
-/* SERVICES PAGE */
-.services-list {
+/* TEAMS */
+.teams-list {
   margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -160,81 +172,33 @@ section.home {
   text-align: center;
 }
 
-.service .title {
-  text-align: left;
-}
-
-.services-list .service {
+.teams-list .team {
   cursor: pointer;
   padding: 30px;
   transition-duration: 0.2s;
+  text-align: left;
 }
 
-.services-list .service:hover {
+.teams-list .team:hover {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.services-list .service h2 {
+.teams-list .team h2 {
   font-size: var(--title-text-size);
   font-weight: 500;
   margin-top: 20px;
   color: var(--secondary-color);
 }
 
-.services-list .service .icon img {
+.teams-list .team .icon img {
   max-width: 100px;
-}
-
-/* WORK PAGE */
-.portfolio {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.portfolio .item {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  margin: 5px;
-}
-
-.portfolio .item img {
-  width: 100%;
-  height: 100%;
-}
-
-.portfolio .item .action {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.portfolio .item:hover .action {
-  opacity: 1;
-}
-
-.portfolio .item .action a {
-  display: inline-block;
-  color: #fff;
-  text-decoration: none;
-  border: 1px solid #fff;
-  padding: 5px 15px;
 }
 
 /* ACCOUNT */
 section.account {
   margin-bottom: 60px;
 }
+
 
 .account-wrapper {
   position: relative;
@@ -325,8 +289,77 @@ section.footer {
 }
 
 
+/* TODO LIST */
+.todo-list {
+  max-width: 400px;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.todo-list h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.todo-list ul {
+  list-style: none;
+  padding: 5px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.todo-list li {
+  padding: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.todo-list li:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.todo-list li.highlighted-task {
+  background-color: rgb(255, 93, 93);
+}
+
+/* .todo-list li.recurrent-task label {
+  display: flex;
+  align-items: center;
+} */
+
+.todo-list li.recurrent-task span {
+  display: inline-block;
+  color: white;
+  padding: 0 3px;
+  margin: 0 5px 0 0;
+  font-size: var(--small-text-size);
+  background-color: rgb(186, 49, 255);
+}
+
+.todo-list input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.todo-list label {
+  cursor: pointer;
+}
+
+.todo-list input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: #888;
+}
+
+
+
 @media (max-width: 1068px) {
-  .services-list {
+  .teams-list {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -360,11 +393,11 @@ section.footer {
 }
 
 @media (max-width: 768px) {
-  .services-list {
+  .teams-list {
     grid-template-columns: 1fr;
   }
 
-  .services-list .service {
+  .teams-list .team {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
 }
