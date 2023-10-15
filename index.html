@@ -1,11 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo list</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>ToDo Application</title>
 </head>
 <body>
-    <h1>Hello from ToDo-List!</h1>
+    <header>
+        <div class="navigation container">
+            <a class="logo" href="index.html">ToDo App</a>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+  
+    <section class="home container">
+        <div class="home-content">
+            <h1>
+            We help to achieve <br />
+            your goals.
+            </h1>
+            <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo itaque
+            nam saepe vero voluptatem vel fuga a eaque earum alias ipsam
+            aspernatur culpa maxime laboriosam, impedit quae officiis consectetur
+            </p>
+            <a href="#account" class="btn">Get Started</a>
+        </div>
+
+        <img src="images/home-img.jpg" class="home-img" alt="" />
+    </section>
+
+    <section class="services container">
+        <div class="title">
+            <h1>Services that we can help you with</h1>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus
+                iusto molestias accusamus rem nobis est, et laborum harum doloremque
+                nemo non, minima quos totam labore maxime iste alias ut esse? Repellat
+                eaque reiciendis laboriosam corporis fuga vero ratione veritatis
+                numquam, libero magni voluptatum omnis molestiae officiis
+                exercitationem qui quidem nam.
+            </p>
+        </div>
+        <div class="services-list">
+            <div class="service">
+                <div class="icon">
+                <img src="images/service-1.png" alt="" />
+                </div>
+                <h2>Design</h2>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum omnis
+                nemo sapiente in quidem sed dolores cumque! Ut, est aliquid!
+            </div>
+            <div class="service">
+                <div class="icon">
+                <img src="images/service-2.png" alt="" />
+                </div>
+                <h2>Development</h2>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum omnis
+                nemo sapiente in quidem sed dolores cumque! Ut, est aliquid!
+            </div>
+            <div class="service">
+                <div class="icon">
+                <img src="images/service-3.png" alt="" />
+                </div>
+                <h2>SEO</h2>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum omnis
+                nemo sapiente in quidem sed dolores cumque! Ut, est aliquid!
+            </div>
+            <div class="service">
+                <div class="icon">
+                <img src="images/service-4.png" alt="" />
+                </div>
+                <h2>Marketing</h2>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum omnis
+                nemo sapiente in quidem sed dolores cumque! Ut, est aliquid!
+            </div>
+            <div class="service">
+                <div class="icon">
+                <img src="images/service-5.png" alt="" />
+                </div>
+                <h2>App Development</h2>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum omnis
+                nemo sapiente in quidem sed dolores cumque! Ut, est aliquid!
+            </div>
+            <div class="service">
+                <div class="icon">
+                <img src="images/service-6.png" alt="" />
+                </div>
+                <h2>Error Fixing</h2>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum omnis
+                nemo sapiente in quidem sed dolores cumque! Ut, est aliquid!
+            </div>
+        </div>
+    </section>
+
+    <section id="account" class="account container">
+        <div class="title">
+            <h1>Create an account</h1>
+            <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus
+            iusto molestias accusamus rem nobis est, et laborum harum doloremque
+            nemo non, minima quos totam labore
+            </p>
+        </div>
+        <div class="account-wrapper">
+            <div class="account-form">
+                <h2>Register</h2>
+
+                <form>
+                    <div class="row">
+                        <div class="input100">
+                            <input type="text" placeholder="Nickname">
+                        </div>
+                        </div>
+                    <div class="row">
+                        <div class="input100">
+                            <input type="text" placeholder="Email" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input100">
+                            <input type="text" placeholder="Password" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="btn account-btn">
+                            <input type="submit" value="Send" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="account-form">
+                <h2>Login</h2>
+
+                <form>
+                    <div class="row">
+                        <div class="input100">
+                            <input type="text" placeholder="Email" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input100">
+                            <input type="text" placeholder="Password" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="btn account-btn">
+                            <input type="submit" value="Send" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
