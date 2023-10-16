@@ -91,6 +91,14 @@ section.home {
   font-size: var(--logo-text-size);
   font-weight: 700;
   z-index: 20;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
 }
 
 /* TOGGLE */
@@ -326,7 +334,7 @@ section.footer {
 }
 
 .todo-list li.highlighted-task {
-  background-color: rgb(255, 93, 93);
+  background-color: yellow;
 }
 
 /* .todo-list li.recurrent-task label {
