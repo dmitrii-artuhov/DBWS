@@ -337,11 +337,6 @@ section.footer {
   background-color: yellow;
 }
 
-/* .todo-list li.recurrent-task label {
-  display: flex;
-  align-items: center;
-} */
-
 .todo-list li.recurrent-task span {
   display: inline-block;
   color: white;
