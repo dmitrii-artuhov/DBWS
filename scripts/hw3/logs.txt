@@ -1,0 +1,136 @@
+mysql> SELECT COUNT(*)
+    -> FROM team2user tu
+    -> INNER JOIN team2list tt ON tu.team_id = tt.team_id
+    -> INNER JOIN list2task lt ON tt.list_id = lt.list_id
+    -> INNER JOIN tasks t ON t.id = lt.task_id
+    -> WHERE tu.user_id = 5 AND t.type = 'DEADLINE' AND t.is_completed = FALSE; -- Replace '5' with your user ID
++----------+
+| COUNT(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> SELECT lt.list_id, COUNT(lt.task_id) AS task_count
+    -> FROM team2list tl
+    -> INNER JOIN list2task lt ON tl.list_id = lt.list_id
+    -> WHERE tl.team_id = 2  -- Replace '2' with your team ID
+    -> GROUP BY lt.list_id
+    -> HAVING COUNT(lt.task_id) <= 5;
++---------+------------+
+| list_id | task_count |
++---------+------------+
+|       2 |          5 |
++---------+------------+
+1 row in set (0.00 sec)
+
+mysql> -- Shows all incompleted tasks in a concrete team grouped by list_id to present them in separated lists
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT lt.list_id, t.*
+    -> FROM team2user tu
+    -> INNER JOIN team2list tt ON tu.team_id = tt.team_id
+    -> INNER JOIN list2task lt ON tt.list_id = lt.list_id
+    -> INNER JOIN tasks t ON t.id = lt.task_id
+    -> WHERE tu.team_id = 2 AND t.is_completed = FALSE -- Replace '2' with your team ID
+    -> GROUP BY lt.list_id, t.id;
++---------+----+-----------------+---------------------------------------------------+----------+-----------+--------------+
+| list_id | id | title           | description                                       | owner_id | type      | is_completed |
++---------+----+-----------------+---------------------------------------------------+----------+-----------+--------------+
+|       2 |  3 | Task 'kind'     | Description 'exist interest able yeah PM'         |        2 | RECURRENT |            0 |
+|       2 |  4 | Task 'it'       | Description 'can book everyone rather while'      |        2 | RECURRENT |            0 |
+|       2 |  5 | Task 'change'   | Description 'government affect weight data group' |        2 | RECURRENT |            0 |
+|       2 |  6 | Task 'line'     | Description 'hundred rather body worry talk'      |        2 | REGULAR   |            0 |
+|       2 |  7 | Task 'suddenly' | Description 'information tend forget grow one'    |        2 | DEADLINE  |            0 |
++---------+----+-----------------+---------------------------------------------------+----------+-----------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> -- THE REST OF FUNCTIONS:
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> 
+mysql> -- Show all teams where user takes part
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT teams.*
+    -> FROM team2user tu
+    -> INNER JOIN teams ON tu.team_id = teams.id
+    -> WHERE tu.user_id = 1; -- Replace '1' with your user ID
++----+----------+----------------------+----------+-----------+
+| id | theme_id | name                 | owner_id | shareable |
++----+----------+----------------------+----------+-----------+
+|  1 |        1 | night become several |        1 |         0 |
+|  6 |        1 | Team with all users  |        1 |         0 |
++----+----------+----------------------+----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> -- Get avatar_image_id of a concrete user to show it to one
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT a.avatar_image_id
+    -> FROM users u
+    -> INNER JOIN avatars a ON a.id = u.avatar_id
+    -> WHERE u.id = 1; -- Replace '1' with your user ID
++-----------------+
+| avatar_image_id |
++-----------------+
+|               1 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> -- Get theme_image_id for each team which user takes part in 
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT t.id, th.theme_image_id
+    -> FROM team2user tu
+    -> INNER JOIN users u ON u.id = tu.user_id
+    -> INNER JOIN teams t ON t.id = tu.team_id
+    -> INNER JOIN themes th ON th.id = t.theme_id
+    -> WHERE u.id = 1; -- Replace '1' with your user ID
++----+----------------+
+| id | theme_image_id |
++----+----------------+
+|  1 |              1 |
+|  6 |              1 |
++----+----------------+
+2 rows in set (0.00 sec)
+
+mysql> -- Get all participant's nicknames of a concrete team sorted by nicknames alphabetically 
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT u.id, u.nickname 
+    -> FROM team2user tu
+    -> INNER JOIN users u ON u.id = tu.user_id
+    -> WHERE tu.team_id = 6 -- Replace '6' with your team ID
+    -> ORDER BY u.nickname;
++----+----------------------+
+| id | nickname             |
++----+----------------------+
+|  4 | Christopher Mccarthy |
+|  1 | Jacob Weaver         |
+|  3 | Lisa Hall            |
+|  2 | Paige Aguilar MD     |
+|  5 | Tina Smith           |
++----+----------------------+
+5 rows in set (0.00 sec)
+
+mysql> -- Get all available avatars which user can choose 
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT avatars.id, avatars.avatar_image_id
+    -> FROM avatars LIMIT 10;
++----+-----------------+
+| id | avatar_image_id |
++----+-----------------+
+|  1 |               1 |
++----+-----------------+
+1 row in set (0.01 sec)
+
+mysql> -- Shows all completed tasks which user created (task archive)
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> SELECT t.id, t.title 
+    -> FROM tasks t
+    -> WHERE t.owner_id = 1 AND t.is_completed = TRUE; -- Replace '1' with your owner ID
+Empty set (0.00 sec)

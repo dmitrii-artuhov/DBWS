@@ -1,0 +1,194 @@
+mysql> select * from avatars
+    -> ;
++----+-----------------+
+| id | avatar_image_id |
++----+-----------------+
+|  1 |               1 |
++----+-----------------+
+1 row in set (0.00 sec)
+
+mysql> select * from deadline_tasks;
++----+---------------------+
+| id | deadline            |
++----+---------------------+
+|  2 | 2023-10-09 14:20:30 |
+|  7 | 2023-10-09 14:20:30 |
+|  8 | 2023-10-09 14:20:30 |
+|  9 | 2023-10-09 14:20:30 |
+| 12 | 2023-10-09 14:20:30 |
+| 16 | 2023-10-09 14:20:30 |
+| 21 | 2023-10-09 14:20:30 |
++----+---------------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from highlighted_tasks;
++----+---------+
+| id | color   |
++----+---------+
+|  1 | #FFFF00 |
+| 14 | #FFFF00 |
+| 17 | #FFFF00 |
+| 24 | #FFFF00 |
++----+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from list2task;
++----+---------+---------+
+| id | task_id | list_id |
++----+---------+---------+
+|  1 |       1 |       1 |
+|  2 |       2 |       1 |
+|  3 |       3 |       2 |
+|  4 |       4 |       2 |
+|  5 |       5 |       2 |
+|  6 |       6 |       2 |
+|  7 |       7 |       2 |
+|  8 |       8 |       3 |
+|  9 |       9 |       4 |
+| 10 |      10 |       4 |
+| 11 |      11 |       4 |
+| 12 |      12 |       5 |
+| 13 |      13 |       5 |
+| 14 |      14 |       5 |
+| 15 |      15 |       5 |
+| 16 |      16 |       6 |
+| 17 |      17 |       6 |
+| 18 |      18 |       6 |
+| 19 |      19 |       7 |
+| 20 |      20 |       7 |
+| 21 |      21 |       8 |
+| 22 |      22 |       8 |
+| 23 |      23 |       8 |
+| 24 |      24 |       8 |
++----+---------+---------+
+24 rows in set (0.00 sec)
+
+mysql> select * from tasks
+    -> ;
++----+--------------------+---------------------------------------------------------+----------+-------------+--------------+
+| id | title              | description                                             | owner_id | type        | is_completed |
++----+--------------------+---------------------------------------------------------+----------+-------------+--------------+
+|  1 | Task 'my'          | Description 'scientist various finish serve red'        |        1 | HIGHLIGHTED |            0 |
+|  2 | Task 'voice'       | Description 'nice agree travel order term'              |        1 | DEADLINE    |            0 |
+|  3 | Task 'kind'        | Description 'exist interest able yeah PM'               |        2 | RECURRENT   |            0 |
+|  4 | Task 'it'          | Description 'can book everyone rather while'            |        2 | RECURRENT   |            0 |
+|  5 | Task 'change'      | Description 'government affect weight data group'       |        2 | RECURRENT   |            0 |
+|  6 | Task 'line'        | Description 'hundred rather body worry talk'            |        2 | REGULAR     |            0 |
+|  7 | Task 'suddenly'    | Description 'information tend forget grow one'          |        2 | DEADLINE    |            0 |
+|  8 | Task 'question'    | Description 'base three the radio design'               |        3 | DEADLINE    |            0 |
+|  9 | Task 'south'       | Description 'line spend play keep drug'                 |        3 | DEADLINE    |            0 |
+| 10 | Task 'serious'     | Description 'commercial reality free newspaper since'   |        3 | REGULAR     |            0 |
+| 11 | Task 'bring'       | Description 'surface agreement happy man fast'          |        3 | RECURRENT   |            0 |
+| 12 | Task 'so'          | Description 'north it society our speak'                |        4 | DEADLINE    |            0 |
+| 13 | Task 'despite'     | Description 'first act knowledge fight up'              |        4 | RECURRENT   |            0 |
+| 14 | Task 'author'      | Description 'bring author current he may'               |        4 | HIGHLIGHTED |            0 |
+| 15 | Task 'shoulder'    | Description 'sure agree never history society'          |        4 | REGULAR     |            0 |
+| 16 | Task 'traditional' | Description 'southern all explain management song'      |        4 | DEADLINE    |            0 |
+| 17 | Task 'officer'     | Description 'both local human computer bank'            |        4 | HIGHLIGHTED |            0 |
+| 18 | Task 'eye'         | Description 'church organization according water light' |        4 | RECURRENT   |            0 |
+| 19 | Task 'thousand'    | Description 'maintain none require within really'       |        4 | RECURRENT   |            0 |
+| 20 | Task 'side'        | Description 'impact state try within happen'            |        4 | RECURRENT   |            0 |
+| 21 | Task 'card'        | Description 'whom consumer memory dark or'              |        5 | DEADLINE    |            0 |
+| 22 | Task 'marriage'    | Description 'left again thing ability prove'            |        5 | REGULAR     |            0 |
+| 23 | Task 'avoid'       | Description 'study establish me without week'           |        5 | RECURRENT   |            0 |
+| 24 | Task 'budget'      | Description 'result go fish both region'                |        5 | HIGHLIGHTED |            0 |
++----+--------------------+---------------------------------------------------------+----------+-------------+--------------+
+24 rows in set (0.00 sec)
+
+mysql> select * from recurrent_tasks;
++----+---------+
+| id | weekday |
++----+---------+
+|  3 |       3 |
+|  4 |       1 |
+|  5 |       6 |
+| 11 |       5 |
+| 13 |       5 |
+| 18 |       1 |
+| 19 |       2 |
+| 20 |       5 |
+| 23 |       7 |
++----+---------+
+9 rows in set (0.00 sec)
+
+mysql> select * from lists;
++----+-----------------+
+| id | name            |
++----+-----------------+
+|  1 | List 'once'     |
+|  2 | List 'pretty'   |
+|  3 | List 'resource' |
+|  4 | List 'level'    |
+|  5 | List 'race'     |
+|  6 | List 'election' |
+|  7 | List 'point'    |
+|  8 | List 'lot'      |
++----+-----------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from team2list;
++----+---------+---------+
+| id | team_id | list_id |
++----+---------+---------+
+|  1 |       1 |       1 |
+|  2 |       2 |       2 |
+|  3 |       3 |       3 |
+|  4 |       3 |       4 |
+|  5 |       4 |       5 |
+|  6 |       4 |       6 |
+|  7 |       4 |       7 |
+|  8 |       5 |       8 |
++----+---------+---------+
+8 rows in set (0.00 sec)
+
+mysql> select * from team2user;
++----+---------+---------+
+| id | team_id | user_id |
++----+---------+---------+
+|  1 |       1 |       1 |
+|  2 |       2 |       2 |
+|  3 |       3 |       3 |
+|  4 |       4 |       4 |
+|  5 |       5 |       5 |
+|  6 |       6 |       1 |
+|  7 |       6 |       2 |
+|  8 |       6 |       3 |
+|  9 |       6 |       4 |
+| 10 |       6 |       5 |
++----+---------+---------+
+10 rows in set (0.00 sec)
+
+mysql> select * from teams;
++----+----------+------------------------+----------+-----------+
+| id | theme_id | name                   | owner_id | shareable |
++----+----------+------------------------+----------+-----------+
+|  1 |        1 | night become several   |        1 |         0 |
+|  2 |        1 | project religious seek |        2 |         0 |
+|  3 |        1 | fall avoid such        |        3 |         0 |
+|  4 |        1 | rate field however     |        4 |         0 |
+|  5 |        1 | remain area will       |        5 |         0 |
+|  6 |        1 | Team with all users    |        1 |         0 |
++----+----------+------------------------+----------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from themes;
++----+----------------+
+| id | theme_image_id |
++----+----------------+
+|  1 |              1 |
++----+----------------+
+1 row in set (0.00 sec)
+
+mysql> select * from users;
++----+------------------------------+------------+----------------------+-----------+
+| id | email                        | password   | nickname             | avatar_id |
++----+------------------------------+------------+----------------------+-----------+
+|  1 | westjerry@example.net        | f@VuJ2Il(u | Jacob Weaver         |         1 |
+|  2 | jasoncobb@example.org        | z*5zNuyRnO | Paige Aguilar MD     |         1 |
+|  3 | vjones@example.net           | U_hBHzwz+3 | Lisa Hall            |         1 |
+|  4 | coxnancy@example.org         | (qbtQJLz@4 | Christopher Mccarthy |         1 |
+|  5 | patriciadavidson@example.net | 4M9YwBsDx& | Tina Smith           |         1 |
++----+------------------------------+------------+----------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> 
